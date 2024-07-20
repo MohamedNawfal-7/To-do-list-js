@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do-list-js</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.css"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do-List</h1>
+        <div class="move">
+            <div class="one">
+                <input class="box" type="text" id="input" placeholder="Add some task">
+                <button onclick="addtask()" class="btn">Add</button>
+                <ul id="add"></ul>
+            </div>
+            <!-- <div class="one">
+                <input class="box" type="text" placeholder="Add some task">
+                <button class="btn">Delete</button>
+            </div>
+            <div class="one">
+                <input class="box" type="text" placeholder="Add some task">
+                <button class="btn">Delete</button>
+            </div>
+            <div class="one">
+                <input class="box" type="text" placeholder="Add some task">
+                <button class="btn">Delete</button>
+            </div> -->
+        </div>
+    </div>
+    <script>
+        function addtask(){
+            let input=document.getElementById('input')
+            let add=document.getElementById('add')
+
+            if(input.value===""){
+                alert("Please enter your task")
+                return;
+            }
+
+            let li = document.createElement('li');
+            li.textContent = input.value;
+            li.id='li';
+
+            let deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.onclick = function() {
+                    add.removeChild(li);
+            };
+
+            li.appendChild(deleteButton);
+            add.appendChild(li);
+            
+            input.value='';
+
+        }
+    </script>
+</body>
+</html>
